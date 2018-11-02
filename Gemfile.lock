@@ -76,6 +76,9 @@ GEM
       declarative-option (< 0.2.0)
       representable (>= 2.4.0, <= 3.1.0)
       uber (< 0.2.0)
+    dox (1.1.0)
+      rails (>= 4.0)
+      rspec-core
     erubi (1.7.1)
     ffi (1.9.25)
     globalid (0.4.1)
@@ -226,6 +229,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   devise
+  dox
   listen (>= 3.0.5, < 3.2)
   pg
   pry-byebug
