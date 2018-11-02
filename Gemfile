@@ -11,6 +11,10 @@ gem 'puma'
 # Authentication
 gem 'devise'
 
+# Trailblazer bundle
+gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint', branch: 'rui'
+gem 'trailblazer-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
