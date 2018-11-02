@@ -8,6 +8,9 @@ gem 'rails'
 gem 'pg'
 gem 'puma'
 
+# Serializer
+gem 'jsonapi-rails'
+
 # Authentication
 gem 'devise'
 

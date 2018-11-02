@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-  protect_from_forgery with: :null_session
+  before_action :restrict_content_type
 
   protected
 
@@ -17,5 +17,13 @@ class ApiController < ApplicationController
 
   def endpoint(operation_class, options={}, &block)
     Api::Endpoint.(operation_class, default_handler, {params: params.to_unsafe_h}, &block)
+  end
+
+  private
+
+  def restrict_content_type
+    return if request.content_type == 'application/vnd.api+json'
+
+    render json: { msg: 'Content-Type must be application/vnd.api+json' }, status: 406
   end
 end

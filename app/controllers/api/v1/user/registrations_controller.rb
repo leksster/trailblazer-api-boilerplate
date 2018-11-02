@@ -3,7 +3,20 @@ module Api
     module User
       class RegistrationsController < ApiController
         def create
-          binding.pry
+          if params[:create]
+            response = {
+              email: 'email@stubbed.com',
+              token: 'token'
+            }
+            render json: response, status: :created
+          else
+            response = {
+              error: {
+                message: ['error']
+              }
+            }
+            render json: response, status: :unprocessable_entity
+          end
         end
       end
     end
