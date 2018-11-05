@@ -1,24 +1,94 @@
-# README
+# JSON API Doc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This api is implemented according to the JSON API spec.
 
-Things you may want to cover:
+# Group Registration
+Registration group
 
-* Ruby version
+## Registration [/registration]
 
-* System dependencies
 
-* Configuration
+### Register new user [POST /api/v1/user/registration]
 
-* Database creation
 
-* Database initialization
++ Request renders created user
+**POST**&nbsp;&nbsp;`/api/v1/user/registration`
 
-* How to run the test suite
+    + Headers
 
-* Services (job queues, cache servers, search engines, etc.)
+            Accept: application/vnd.api+json
+            Content-Type: application/vnd.api+json
 
-* Deployment instructions
+    + Body
 
-* ...
+            {
+              "email": "stephine_rippin@roobmills.ca",
+              "password": "!1password",
+              "password_confirmation": "!1password"
+            }
+
++ Response 201
+
+    + Headers
+
+            Content-Type: application/vnd.api+json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "36",
+                "type": "users",
+                "attributes": {
+                  "email": "stephine_rippin@roobmills.ca"
+                }
+              },
+              "jsonapi": {
+                "version": "1.0"
+              }
+            }
+
++ Request renders errors
+**POST**&nbsp;&nbsp;`/api/v1/user/registration`
+
+    + Headers
+
+            Accept: application/vnd.api+json
+            Content-Type: application/vnd.api+json
+
++ Response 422
+
+    + Headers
+
+            Content-Type: application/vnd.api+json; charset=utf-8
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "title": "Invalid email",
+                  "detail": "Email can't be blank",
+                  "source": {
+                    "pointer": "/data/attributes/email"
+                  }
+                },
+                {
+                  "title": "Invalid password",
+                  "detail": "Password can't be blank",
+                  "source": {
+                    "pointer": "/data/attributes/password"
+                  }
+                },
+                {
+                  "title": "Invalid password",
+                  "detail": "Password is too short (minimum is 6 characters)",
+                  "source": {
+                    "pointer": "/data/attributes/password"
+                  }
+                }
+              ],
+              "jsonapi": {
+                "version": "1.0"
+              }
+            }
