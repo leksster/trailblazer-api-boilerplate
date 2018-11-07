@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'Api::V1::User::Registration', type: :request do
   # include Helpers::Api
   include ApiDoc::V1::User::Registration::Api
@@ -19,7 +21,6 @@ RSpec.describe 'Api::V1::User::Registration', type: :request do
       before { post '/api/v1/user/registration', headers: json_api_headers }
 
       it 'renders errors', :dox do
-        binding.pry
         expect(response).to be_unprocessable
       end
     end

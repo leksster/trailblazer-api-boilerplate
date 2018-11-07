@@ -8,7 +8,6 @@ class ApiController < ApplicationController
       m.destroyed { |result| head :no_content }
       # m.present { |result| render json: result[:model].extend(result['representer.render.class']).to_json }
       m.created do |result|
-        binding.pry
         render jsonapi: result[:model], **result[:renderer_options], status: :created
       end
       m.success { |result| render json: result[:model].extend(result['representer.render.class']).to_json }
