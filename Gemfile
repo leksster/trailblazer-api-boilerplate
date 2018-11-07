@@ -43,6 +43,8 @@ end
 
 group :test do
   gem 'dox', require: false
+  gem 'json_matchers'
+  gem 'ffaker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

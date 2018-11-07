@@ -2,10 +2,8 @@
 
 module Api
   class Endpoint < Trailblazer::Endpoint
-    # this is totally WIP as we need to find best practices.
-    # also, i want this to be easily extendable.
     Matcher = Dry::Matcher.new(
-      destroyed: Dry::Matcher::Case.new( # DISCUSS: the "present" flag needs some discussion.
+      destroyed: Dry::Matcher::Case.new(
         match:   ->(result) { result.success? && result[:model].try(:destroyed?) },
         resolve: ->(result) { result }
       ),

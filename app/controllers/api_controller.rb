@@ -1,24 +1,31 @@
+# frozen_string_literal: true
+
 class ApiController < ApplicationController
+  include JsonapiPointers
+
   before_action :restrict_content_type
 
   protected
 
   def default_handler
-    ->(m) do
-      m.destroyed { |result| head :no_content }
+    lambda do |m|
+      m.destroyed { |_result| head :no_content }
       # m.present { |result| render json: result[:model].extend(result['representer.render.class']).to_json }
       m.created do |result|
         render jsonapi: result[:model], **result[:renderer_options], status: :created
       end
       m.success { |result| render json: result[:model].extend(result['representer.render.class']).to_json }
-      m.invalid { |result| render jsonapi_errors: result['contract.default'].errors.messages, class: { Hash: ::JSONAPI::Rails::SerializableErrorHash }, status: :unprocessable_entity }
+      m.invalid do |result|
+        binding.pry
+        render jsonapi_errors: result['contract.default'].errors, class: { 'Reform::Form::ActiveModel::Errors': JSONAPI::Rails::SerializableActiveModelErrors }, status: :unprocessable_entity
+      end
       m.not_found { |result| render json: { error: result[:error] }, status: :not_found }
       # m.unauthenticated { |result| render json: result[:model].extend(result['representer.render.class']).to_json }
     end
   end
 
-  def endpoint(operation_class, options={}, &block)
-    Api::Endpoint.(operation_class, default_handler, { params: params.to_unsafe_h }, &block)
+  def endpoint(operation_class, _options = {}, &block)
+    Api::Endpoint.call(operation_class, default_handler, { params: params.to_unsafe_h }, &block)
   end
 
   private

@@ -1,0 +1,85 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "file:/user/resgistration.json#",
+  "type": "object",
+  "title": "User Registration Schema",
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "title": "The Data Schema",
+      "required": [
+        "id",
+        "type",
+        "attributes"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/data/properties/id",
+          "type": "string",
+          "title": "The Id Schema",
+          "default": "",
+          "examples": [
+            "14"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "type": {
+          "$id": "#/properties/data/properties/type",
+          "type": "string",
+          "title": "The Type Schema",
+          "default": "",
+          "examples": [
+            "users"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "attributes": {
+          "$id": "#/properties/data/properties/attributes",
+          "type": "object",
+          "title": "The Attributes Schema",
+          "required": [
+            "email", "access_token", "refresh_token"
+          ],
+          "properties": {
+            "email": {
+              "$id": "#/properties/data/properties/attributes/properties/email",
+              "type": "string",
+              "title": "The Email Schema",
+              "default": "",
+              "examples": [
+                "email@email.em"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "access_token": {
+              "$id": "#/properties/data/properties/attributes/properties/access_token",
+              "type": "string",
+              "title": "Access Token Schema",
+              "default": "",
+              "examples": [
+                "5125215125215"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "refresh_token": {
+              "$id": "#/properties/data/properties/attributes/properties/refresh_token",
+              "type": "string",
+              "title": "Refresh Token Schema",
+              "default": "",
+              "examples": [
+                "gasgas2"
+              ],
+              "pattern": "^(.*)$"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
+}

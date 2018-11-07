@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'dox'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 Dir[Rails.root.join('spec/api_doc/**/*.rb')].each { |f| require f }
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'helpers/api'
+require 'json_matchers/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -76,3 +79,5 @@ Dox.configure do |config|
   config.desc_folder_path = Rails.root.join('spec/api_doc/v1/descriptions')
   config.headers_whitelist = ['Accept']
 end
+
+JsonMatchers.schema_root = 'spec/support/api/schemas'

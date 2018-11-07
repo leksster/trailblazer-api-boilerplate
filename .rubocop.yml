@@ -22,3 +22,6 @@ Metrics/LineLength:
   Exclude:
     - 'Rakefile'
     - '**/*.rake'
+
+RSpec/MultipleExpectations:
+  Enabled: false

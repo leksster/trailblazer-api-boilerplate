@@ -84,6 +84,7 @@ GEM
       rspec-core
     dry-matcher (0.7.0)
     erubi (1.7.1)
+    ffaker (2.10.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -91,6 +92,9 @@ GEM
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.1)
+    json_matchers (0.10.0)
+      json_schema
+    json_schema (0.19.1)
     jsonapi-deserializable (0.2.0)
     jsonapi-parser (0.1.1)
     jsonapi-rails (0.3.1)
@@ -264,6 +268,8 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   devise
   dox
+  ffaker
+  json_matchers
   jsonapi-rails
   listen (>= 3.0.5, < 3.2)
   pg
