@@ -6,7 +6,7 @@ RSpec.describe 'Api::V1::User::Registration', type: :request do
     include ApiDoc::V1::User::Registration::Create
 
     describe 'Success' do
-      let(:valid_params) { { create: true }.to_json }
+      let(:valid_params) { { email: 'email@email.em', password: '123456', password_confirmation: '123456' }.to_json }
 
       before { post '/api/v1/user/registration', params: valid_params, headers: json_api_headers }
 
@@ -16,11 +16,10 @@ RSpec.describe 'Api::V1::User::Registration', type: :request do
     end
 
     describe 'Fail' do
-      let(:headers) { { 'Content-Type' => 'application/json' } }
-
       before { post '/api/v1/user/registration', headers: json_api_headers }
 
       it 'renders errors', :dox do
+        binding.pry
         expect(response).to be_unprocessable
       end
     end

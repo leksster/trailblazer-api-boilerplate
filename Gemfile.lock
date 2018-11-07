@@ -1,10 +1,9 @@
 GIT
   remote: https://github.com/trailblazer/trailblazer-endpoint.git
-  revision: 4c15fd41ed3d8fba03b48deada10481bc372d1d1
-  branch: rui
+  revision: 0c80379a4ae977aa427092aade2aa07882f9381d
   specs:
     trailblazer-endpoint (0.0.1)
-      trailblazer-context (>= 0.1.1, < 0.3.0)
+      dry-matcher
 
 GEM
   remote: https://rubygems.org/
@@ -82,6 +81,7 @@ GEM
     dox (1.1.0)
       rails (>= 4.0)
       rspec-core
+    dry-matcher (0.7.0)
     erubi (1.7.1)
     ffi (1.9.25)
     globalid (0.4.1)
