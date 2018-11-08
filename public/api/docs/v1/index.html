@@ -2,18 +2,49 @@
 <section id="registration" class="resource-group"><h2 class="group-heading">Registration <a href="#registration" class="permalink">&para;</a></h2><p>Registration group</p>
 <div id="registration-registration" class="resource"><h3 class="resource-heading">Registration <a href="#registration-registration" class="permalink">&nbsp;&para;</a></h3><div id="registration-registration-post" class="action post"><h4 class="action-heading"><div class="name">Register new user</div><a href="#registration-registration-post" class="method post">POST</a><code class="uri">/api/v1/user/registration</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/user/registration</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>renders created user</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/user/registration</code></p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/vnd.api+json</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/vnd.api+json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">create</span>": <span class="hljs-value"><span class="hljs-literal">true</span>
+  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"stephine_rippin@roobmills.ca"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"!1password"</span></span>,
+  "<span class="hljs-attribute">password_confirmation</span>": <span class="hljs-value"><span class="hljs-string">"!1password"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/vnd.api+json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"email@stubbed.com"</span></span>,
-  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"token"</span>
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"36"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"users"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"stephine_rippin@roobmills.ca"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">jsonapi</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.0"</span>
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>renders errors</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/user/registration</code></p>
 </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/vnd.api+json</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/vnd.api+json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/vnd.api+json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">error</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">message</span>": <span class="hljs-value">[
-      <span class="hljs-string">"error"</span>
-    ]
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Invalid email"</span></span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Email can't be blank"</span></span>,
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/data/attributes/email"</span>
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Invalid password"</span></span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Password can't be blank"</span></span>,
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/data/attributes/password"</span>
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"Invalid password"</span></span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Password is too short (minimum is 6 characters)"</span></span>,
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/data/attributes/password"</span>
+      </span>}
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">jsonapi</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.0"</span>
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 06 Nov 2018</p><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 09 Nov 2018</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

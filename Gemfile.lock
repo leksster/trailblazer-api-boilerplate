@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/jsonapi-rb/jsonapi-rails.git
+  revision: 14a9421658495fe916ec1886834b6adfd764b211
+  specs:
+    jsonapi-rails (0.3.1)
+      jsonapi-parser (~> 0.1.0)
+      jsonapi-rb (~> 0.5.0)
+
+GIT
   remote: https://github.com/trailblazer/trailblazer-endpoint.git
   revision: 0c80379a4ae977aa427092aade2aa07882f9381d
   specs:
@@ -97,15 +105,16 @@ GEM
     json_schema (0.19.1)
     jsonapi-deserializable (0.2.0)
     jsonapi-parser (0.1.1)
-    jsonapi-rails (0.3.1)
-      jsonapi-parser (~> 0.1.0)
-      jsonapi-rb (~> 0.5.0)
     jsonapi-rb (0.5.0)
       jsonapi-deserializable (~> 0.2.0)
       jsonapi-serializable (~> 0.3.0)
     jsonapi-renderer (0.2.0)
     jsonapi-serializable (0.3.0)
       jsonapi-renderer (~> 0.2.0)
+    jwt (2.1.0)
+    jwt_sessions (2.2.1)
+      jwt (>= 2.1, < 3)
+      redis (>= 3, < 5)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -173,6 +182,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redis (4.0.2)
     reform (2.2.4)
       disposable (>= 0.4.1)
       representable (>= 2.4.0, < 3.1.0)
@@ -270,7 +280,8 @@ DEPENDENCIES
   dox
   ffaker
   json_matchers
-  jsonapi-rails
+  jsonapi-rails!
+  jwt_sessions
   listen (>= 3.0.5, < 3.2)
   pg
   pry-byebug

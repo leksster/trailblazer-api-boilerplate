@@ -9,5 +9,5 @@ api_mime_types = %w(
   application/json
 )
 
-Mime::Type.unregister :json
+# Mime::Type.unregister :json
 Mime::Type.register 'application/vnd.api+json', :json, api_mime_types

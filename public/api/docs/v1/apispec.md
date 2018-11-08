@@ -22,7 +22,9 @@ Registration group
     + Body
 
             {
-              "create": true
+              "email": "stephine_rippin@roobmills.ca",
+              "password": "!1password",
+              "password_confirmation": "!1password"
             }
 
 + Response 201
@@ -34,8 +36,16 @@ Registration group
     + Body
 
             {
-              "email": "email@stubbed.com",
-              "token": "token"
+              "data": {
+                "id": "36",
+                "type": "users",
+                "attributes": {
+                  "email": "stephine_rippin@roobmills.ca"
+                }
+              },
+              "jsonapi": {
+                "version": "1.0"
+              }
             }
 
 + Request renders errors
@@ -55,9 +65,30 @@ Registration group
     + Body
 
             {
-              "error": {
-                "message": [
-                  "error"
-                ]
+              "errors": [
+                {
+                  "title": "Invalid email",
+                  "detail": "Email can't be blank",
+                  "source": {
+                    "pointer": "/data/attributes/email"
+                  }
+                },
+                {
+                  "title": "Invalid password",
+                  "detail": "Password can't be blank",
+                  "source": {
+                    "pointer": "/data/attributes/password"
+                  }
+                },
+                {
+                  "title": "Invalid password",
+                  "detail": "Password is too short (minimum is 6 characters)",
+                  "source": {
+                    "pointer": "/data/attributes/password"
+                  }
+                }
+              ],
+              "jsonapi": {
+                "version": "1.0"
               }
             }

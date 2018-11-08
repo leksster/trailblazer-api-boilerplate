@@ -9,10 +9,11 @@ gem 'pg'
 gem 'puma'
 
 # Serializer
-gem 'jsonapi-rails'
+gem 'jsonapi-rails', github: 'jsonapi-rb/jsonapi-rails'
 
 # Authentication
 gem 'devise'
+gem 'jwt_sessions'
 
 # Trailblazer bundle
 gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint'

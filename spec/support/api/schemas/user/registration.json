@@ -43,7 +43,7 @@
           "type": "object",
           "title": "The Attributes Schema",
           "required": [
-            "email", "access_token", "refresh_token"
+            "email"
           ],
           "properties": {
             "email": {
@@ -53,26 +53,6 @@
               "default": "",
               "examples": [
                 "email@email.em"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "access_token": {
-              "$id": "#/properties/data/properties/attributes/properties/access_token",
-              "type": "string",
-              "title": "Access Token Schema",
-              "default": "",
-              "examples": [
-                "5125215125215"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "refresh_token": {
-              "$id": "#/properties/data/properties/attributes/properties/refresh_token",
-              "type": "string",
-              "title": "Refresh Token Schema",
-              "default": "",
-              "examples": [
-                "gasgas2"
               ],
               "pattern": "^(.*)$"
             }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api::V1::Users::Contract
   class Register < Reform::Form
     property :email
@@ -10,7 +12,7 @@ module Api::V1::Users::Contract
     validate :password_ok?
 
     def password_ok?
-      errors.add(:password, 'password mismatch') if password != password_confirmation
+      errors.add(:password, I18n.t('errors.password_missmatch')) if password != password_confirmation
     end
   end
 end
