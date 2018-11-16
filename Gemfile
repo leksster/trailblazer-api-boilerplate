@@ -18,6 +18,7 @@ gem 'jwt_sessions'
 # Trailblazer bundle
 gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint'
 gem 'trailblazer-rails'
+gem 'reform-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
